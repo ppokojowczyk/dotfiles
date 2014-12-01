@@ -1,0 +1,22 @@
+clear
+echo "Click on window that you want to record..."
+x=0
+while read N; do
+	DATA[$x]=`echo "$N" | tr -cd '[[:digit:]]'`
+	let x=$x+1
+	done < <(xwininfo |grep -E '(Width|Height|Absolute upper-left)')
+if test `echo ${DATA[2]}%2 | bc` = 1
+then
+	let DATA[2]=${DATA[2]}-1
+fi
+if test `echo ${DATA[3]}%2 | bc` = 1
+then
+	let DATA[3]=${DATA[3]}-1
+fi
+clear
+echo "Window size: ${DATA[2]}x${DATA[3]}"
+echo "Offset(x,y): ${DATA[0]},${DATA[1]}"
+echo "Record in 3 seconds..."
+sleep 3
+clear
+ffmpeg -an -f x11grab -r 30 -s ${DATA[2]}x${DATA[3]} -i :0.0+${DATA[0]},${DATA[1]} -vcodec libx264 -vpre lossless_ultrafast -threads 0 output.mkv

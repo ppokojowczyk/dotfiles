@@ -1,0 +1,8 @@
+#!/bin/bash
+SAVEIFS=$IFS
+IFS=$(echo -en "\n\b")
+for i in `ls -1`;
+do
+	convmv --notest -f cp1250 -t utf8 $i;
+done
+IFS=$SAVEIFS

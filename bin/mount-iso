@@ -1,0 +1,5 @@
+#!/bin/bash
+IFS=$(echo -e '\n\b')
+FILE=$(zenity --title="Select image file..." --file-selection --filename=$HOME/downloads/)
+fusermount -u /home/pokoy/image
+fuseiso $FILE /home/pokoy/image

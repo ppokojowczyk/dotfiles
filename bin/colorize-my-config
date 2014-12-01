@@ -1,0 +1,34 @@
+#!/bin/bash
+
+if [ -z $@ ]; then 
+  echo "Pass the color in hex format without a #."
+  exit 0
+fi
+
+SAVEIFS="$IFS"
+IFS=""
+
+COL=$@
+
+CONKY=`cat ~/.conky/i3 \
+| sed -e 's/^color1\ [abcdefABCDEF0-9]\{6\}$/color1 '$COL'/g'`
+
+I3WM=`cat ~/.i3/config \
+| sed -e 's/^set\ \$color\ \#[abcdefABCDEF0-9]\{6\}$/set\ \$color\ \#'$COL'/g'`
+
+DMENU=`cat ~/.local/bin/dmenu_arch \
+| sed -e 's/\-sb\ \\\#[abcdefABCDEF0-9]\{6\}/\-sb\ \\\#'$COL'/g'`
+
+GTK2=`cat ~/.themes/0_i3/gtk-2.0/gtkrc \
+| sed -e 's/selected_bg_color\:\#[abcdefABCDEF0-9]\{6\}/selected_bg_color\:\#'$COL'/g'`
+
+GTK3=`cat ~/.themes/0_i3/gtk-3.0/gtk-main.css \
+| sed -e 's/\@define-color\ selected_bg_color.*/\@define-color\ selected_bg_color\ \#'$COL'\;/g'`
+
+echo $CONKY > ~/.conky/i3
+echo $I3WM > ~/.i3/config
+echo $DMENU > ~/.local/bin/dmenu_arch
+echo $GTK2 > ~/.themes/0_i3/gtk-2.0/gtkrc
+echo $GTK3 > ~/.themes/0_i3/gtk-3.0/gtk-main.css
+
+IFS="$SAVEIFS"

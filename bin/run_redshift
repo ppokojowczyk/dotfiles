@@ -1,0 +1,5 @@
+gtk-redshift \
+-l 53.1:18.0 \
+-m randr \
+-t 6500:5000 \
+-r

@@ -1,0 +1,1 @@
+parec -d alsa_output.pci-0000_01_07.0.analog-stereo.monitor --file-format=wav PULSE_OUTPUT.wav

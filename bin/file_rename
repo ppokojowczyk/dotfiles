@@ -1,0 +1,13 @@
+#!/bin/bash
+if [ -z $@ ];
+then
+	echo "Prefix?";
+	exit 1;
+fi
+SAVEIFS=$IFS
+IFS=$(echo -en "\n\b")
+for i in `ls -1`;
+do
+	mv $i "$@$i";
+done
+IFS=$SAVEIFS

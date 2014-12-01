@@ -1,0 +1,12 @@
+#!/bin/bash
+
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+STATE=`cat $DIR/dim_state`
+if [ $STATE == true ]; then
+xcalib -c
+echo false > $DIR/dim_state
+else
+xcalib -a -co 66
+echo true > $DIR/dim_state
+fi

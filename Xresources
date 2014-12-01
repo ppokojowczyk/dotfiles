@@ -1,0 +1,87 @@
+
+! Xft Settings {{{
+Xft.dpi:        96
+!Xft.dpi:        120
+Xft.antialias:  true
+Xft.rgba:       vrgb
+Xft.hinting:    true
+Xft.hintstyle:  hintfull
+! }}}
+
+XTerm*termName: xterm-256color
+URxvt*termName: rxvt-256color
+
+! Colorscheme {{{
+#include "colors/zenburn"
+!URxvt.background: #101010
+!URxvt.foreground: #b0b0b0
+!*background: #101010
+!*foreground: #b0b0b0
+!! }}}
+
+! URXVT Settings {{{
+!URxvt*.transparent: true
+!URxvt*.shading: 10
+URxvt*geometry: 120x40
+URxvt*buffered: true
+URxvt*cursorBlink: true
+URxvt*borderless: 1
+URxvt*scrollBar: false
+URxvt*loginShell: true
+URxvt*secondaryScroll: true
+URxvt*saveLines: 2000
+URxvt.intensityStyles: true
+! URL handling
+URxvt.perl-ext-common: default,matcher,clipboard
+URxvt.url-launcher: /usr/bin/chromium
+URxvt.matcher.button: 1
+Rxvt.url-select.underline: true
+URxvt.keysym.C-Delete: perl:matcher:last
+URxvt.keysym.M-Delete: perl:matcher:list
+URxvt.keysym.M-c: perl:clipboard:copy
+URxvt.keysym.M-v: perl:clipboard:paste
+! }}}
+
+! URXVT Fonts {{{
+
+!URxvt*font:  xft:Droid Sans Mono:size=12:antialias=true
+
+URxvt*font: xft:Terminus:style=Regular:size=14
+URxvt*boldFont: xft:Terminus:style=Bold:size=14
+
+!URxvt*font: xft:Bitstream\ Vera\ Sans\ Mono:style=roman:pixelsize=9
+
+!URxvt*font: xft:Inconsolata:style=Semibold:size=14:antialias=true:hinting=slight
+!Rxvt*boldFont: xft:Inconsolata:style=bold:size=14:antialias=true:hinting=slight
+
+!URxvt*font: xft:monaco:size=10
+!URxvt*boldFont: xft:monaco:style=bold:size=10
+
+!URxvt*font: xft:Ubuntu Mono:size=12
+!URxvt*boldFont: xft:Ubuntu Mono:style=bold:size=12
+
+!URxvt.font: -misc-fixed-medium-r-normal--15-140-75-75-c-90-iso8859-1
+
+!URxvt*font: xft:Source\ Code\ Pro:size=9:style=regular
+
+!URxvt.font: xft:profont:pixelsize=11
+!URxvt*boldFont: xft:profont:pixelsize=11
+
+!URxvt*font: xft:Anonymous\ Pro:size=11
+
+!URxvt*font: xft:Envy\ Code\ R:size=9
+!URxvt*boldFont: xft:Envy\ Code\ R:style=Bold:size=9
+
+! }}}
+
+! XTERM {{{
+XTerm*locale: true
+!xterm*faceName: Envy\ Code\ R:size=11
+!xterm*faceName: Terminus:style=Regular:size=12
+!xterm*faceName: Source\ Code\ Pro:size=10
+!xterm*faceName: Monospace:size=8
+xterm*faceName: Terminus:size=8
+xterm*font: 7x13
+XTerm*background: #383838
+XTerm*foreground: #b0b0b0
+!}}}

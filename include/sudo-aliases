@@ -1,0 +1,14 @@
+#
+# SUDO aliases.
+#
+
+alias pacman='sudo /usr/bin/pacman'
+alias apt-get='sudo apt-get'
+alias aptitude='sudo aptitude'
+alias rpm='sudo rpm'
+alias dpkg='sudo dpkg'
+alias shutdown='sudo /sbin/shutdown'
+alias reboot='sudo /usr/bin/reboot'
+alias poweroff='sudo poweroff'
+alias root='sudo su'
+

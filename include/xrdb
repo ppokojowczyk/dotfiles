@@ -1,0 +1,5 @@
+#
+# Load X settings.
+#
+
+xrdb $DOTFILES/Xresources

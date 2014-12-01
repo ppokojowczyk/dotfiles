@@ -1,0 +1,14 @@
+#
+# Additional BASH file for more private stuff.
+#
+
+BITBUCKET_LOGIN=''
+GITHUB_LOGIN=''
+
+#
+# Your Very Own Function.
+#
+your_very_own_function() {
+  echo "This is output of your_very_own_function.";
+}
+

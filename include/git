@@ -1,0 +1,31 @@
+#
+# Git.
+# 
+# Set BITBUCKET_LOGIN and GITHUB_LOGIN variables in ~/.bash_extra.
+#
+
+gstat() { git status ;}
+
+gcomm() { git commit -m "'$@'" ;}
+
+gadd() { git add . ;}
+
+gpush() { git add . ; git commit -m "'$@'" ; git push ;}
+
+bitbucket-add() { git remote add origin git@bitbucket.org:$BITBUCKET_LOGIN/$@.git ;}
+
+github-add() { git remote add origin ssh://git@github.com/$GITHUB_LOGIN/$@.git ;}
+
+gitfirstpush() { git push -u origin master ;}
+
+bitbucket-clone() {
+  git clone git@bitbucket.org:$BITBUCKET_LOGIN/$@.git;
+}
+
+bitbucket-first-upload() {
+  git init;
+  git remote add origin git@bitbucket.org:$BITBUCKET_LOGIN/$@.git;
+  git add .;
+  git commit -m 'First upload.';
+  git push -u origin master;
+}

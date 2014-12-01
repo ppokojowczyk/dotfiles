@@ -1,0 +1,33 @@
+own_window yes
+own_window_type override
+own_window_transparent yes
+double_buffer yes
+use_spacer none
+pad_percents 2
+use_xft yes
+xftalpha 0.9
+text_buffer_size 2048
+alignment bottom_middle
+gap_x 0
+gap_y 48
+
+update_interval 5
+stippled_borders 0
+border_width 0
+draw_outline no
+draw_borders no
+uppercase no
+
+draw_shades no
+default_shade_color 000000
+
+#xftfont Envy Code R:size=10:style=Regular
+xftfont Source Code Pro:size=12:style=Regular
+#xftfont Clean:style=Regular
+
+own_window_colour 383838
+default_color 444444
+color1 111111
+
+TEXT
+${alignc}UPTIME: $uptime $color1|$color MEM: $mem / $memmax $color1|$color SWAP: $swap / $swapmax $color1|$color ROOT: ${fs_free /} $color1|$color HOME: ${fs_free /home/} $color1|$color LINK: ${wireless_link_qual wlp1s6} / ${wireless_link_qual_max wlp1s6}

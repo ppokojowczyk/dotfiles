@@ -1,0 +1,59 @@
+#
+# Load dotfiles!
+#
+
+# Export PATH variable.
+export PATH=$PATH:$DOTFILES/bin
+
+# X display.
+export DISPLAY=:0
+
+# Load Xresources file.
+xrdb $DOTFILES/Xresources
+
+# Put ~/.bin in $PATH.
+[[ -d ~/.bin ]] && export PATH=$PATH:$HOME/.bin \
+  || echo "~/.bin directory doesn't exist."
+
+# Load extra/private bash file.
+[[ -f ~/.bash_extra ]] && . ~/.bash_extra \
+  || echo "~/.bash_extra file doesn't exist."
+
+# If not running interactively, don't do anything.
+[[ $- != *i* ]] && return
+
+# Include every file in include dir.
+for f in `ls -1A ~/.dotfiles/include/`; do
+  . $DOTFILES/include/$f;
+done
+
+complete -cf sudo
+
+xhost +local:root > /dev/null 2>&1
+
+# Set TERM environment variable.
+case "$TERM" in
+  screen) TERM=screen-256color ;;
+  rxvt) TERM=rxvt-unicode-256color ;;
+  xterm*) TERM=xterm-256color ;;
+esac
+
+# History settings.
+export HISTSIZE=10000
+export HISTFILESIZE=10000
+export HISTCONTROL=ignoreboth
+
+# Shell options.
+shopt -s cdspell
+shopt -s checkwinsize
+shopt -s cmdhist
+shopt -s dotglob
+shopt -s expand_aliases
+shopt -s extglob
+shopt -s histappend
+shopt -s hostcomplete
+shopt -s nocaseglob
+
+# Bash prompt.
+PROMPT_COMMAND=prompt_block
+

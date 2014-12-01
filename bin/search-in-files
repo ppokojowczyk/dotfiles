@@ -1,0 +1,17 @@
+#
+#!/bin/bash
+#
+clear
+echo "Search for phrase in files."
+echo -e "------------------------------------\n"
+FILES=`find`
+
+for i in $FILES;do
+
+OUT=`cat $i | grep "$1"`
+if [ -n "$OUT" ]; then
+echo -e "\e[34m$i\e[0m"
+echo -e "$OUT\n"
+fi
+
+done

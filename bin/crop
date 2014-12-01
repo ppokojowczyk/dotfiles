@@ -1,0 +1,14 @@
+#!/bin/bash
+IFS=$(echo -e '\n\b')
+echo "Width?"
+read WIDTH
+echo "Height?"
+read HEIGHT
+clear
+echo "Croping to "$WIDTH"x"$HEIGHT"."
+FOLDER=$HOME/tmp/images-$(date +%s)
+mkdir $FOLDER
+for i in `ls -1 | grep -E '.*\.(jpg|JPG|png|PNG|jpeg|JPEG)'`; do
+convert $i -quality 99 -gravity Center -crop "$WIDTH"x"$HEIGHT"+0+0 "$FOLDER"/$i;
+done
+echo "OK."

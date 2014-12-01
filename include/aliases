@@ -1,0 +1,34 @@
+#
+# Aliases.
+#
+
+#alias ls='ls --color=auto -l' # Colorized ls output.
+alias ls='ls -lF'
+alias l='ls'
+alias ll='ls -a'
+alias c='cd'
+alias cl='clear'
+alias ..='cd ..'
+alias ....='cd ../..'
+alias ......='cd ../../..'
+alias ekg='ekg2 -m' # Run ekg without mouse support.
+alias beep='sudo /usr/bin/beep' # Run beep elevated.
+alias cp='cp -i' # cp interactive.
+alias df='df -hT' # Human readable, print filetype.
+alias du='du -d1' # Max depth.
+alias feh='feh -B black' # Background, resolution.
+alias free='free -h' # Human readable.
+alias mkdir='mkdir -p -v' # Create if not exist, verbose.
+alias mkdatedir='mkdir -p -v `date +%F`' # Creates date directory.
+alias mount='mount | column -t' # align in column.
+alias mv='mv -i' # mv interactive.
+alias rm='rm -i' # rm interactive.
+alias wget='wget -c' # Continues/resumes.
+alias xbindkeys-restart='killall -9 xbindkeys;xbindkeys' # Restart xbindkeys.
+alias todo='vim $SCRIPTS/todo-list/list' # Edit todo list.
+alias relxrdb='xrdb ~/.Xresources' # Reload Xresources.
+alias wifisignal='watch -n0.1 iwconfig' # Runs iwconfig.
+alias lampp='sudo /opt/lampp/lampp' # Link to lampp exec.
+alias vim='vim -p' # Open vim with tabs.
+alias gvim='gvim --remote-tab-silent' # Open gvim with tabs.
+

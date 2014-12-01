@@ -1,0 +1,31 @@
+# 
+# Prompt configuration.
+#
+
+function prompt_block {
+local RESET=''
+local FG=7
+local BG=4
+#local COLORIZE='\e]4;'$BG';rgb:7F/B3/54\e\\\e[32m'
+local git_branch="$(git branch 2> /dev/null | grep '*' | awk '{print $NF}' | sed 's/)//g')"
+local GIT=""
+if [ -n "$git_branch" ]
+then
+    GIT=" ["
+    [[ -z $(git status --porcelain) ]] && GIT+="\[\033[32;4"$BG"m\]" || GIT+="\[\033[31;4"$BG"m\]"
+    GIT+="$git_branch\[\033[3"$FG";4"$BG"m\]]"
+fi
+PS1="$COLORIZE\n\[\033[0;3"$BG"m\]\342\224\214\[\033[3"$FG";4"$BG"m\] \u@\h ( \w )$GIT \[\033[0m\]\n\[\033[0;3"$BG"m\]\342\224\224\342\206\222 \[\033[0m\]"
+}
+
+function prompt_simple {
+local git_branch="$(git branch 2> /dev/null | grep '*' | awk '{print $NF}' | sed 's/)//g')"
+local GIT=""
+if [ -n "$git_branch" ]
+then
+    GIT="\[\e[0m\] ["
+    [[ -z $(git status --porcelain) ]] && GIT+="\[\e[32;1m\]" || GIT+="\[\e[31;1m\]"
+    GIT+="$git_branch\[\e[0m\]]"
+fi
+PS1="\[\e[36;1m\]\u\[\e[0m\]@\[\e[33;1m\]\h \[\e[0;1m\](\w)$GIT \[\e[32;1m\]$\[\e[0m\] "
+}

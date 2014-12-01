@@ -1,0 +1,12 @@
+#
+# Server related functions.
+#
+
+srv-hosts() { sudo $EDITOR /etc/hosts ;}
+srv-vhosts() { sudo $EDITOR /etc/httpd/conf/extra/httpd-vhosts.conf ;}
+srv-php() { sudo $EDITOR /etc/php/php.ini ;}
+srv-httpd() { sudo $EDITOR /etc/httpd/conf/httpd.conf ;}
+srv-reload() { sudo systemctl reload httpd ;}
+srv-restart() { sudo systemctl restart httpd ;}
+srv-sql() { mysql -uroot -p ;}
+

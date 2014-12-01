@@ -1,0 +1,47 @@
+#!/bin/bash
+#
+# Script creates personal directory structure divided into personal, work and
+# resources space.
+#
+
+#
+# Directories names:
+#
+D='documents'
+P='personal';
+W='work'
+R='resources';
+
+#
+# Create main directories:
+#
+mkdir -p $D/{$P,$W,$R};
+
+#
+# Personal structure:
+#
+mkdir -p $D/$P/\
+{resume,text,photos,webcam,important};
+
+#
+# Work structure:
+#
+mkdir -p $D/$W/\
+{graphics,music,dev};
+
+mkdir -p $D/$W/graphics/\
+{final,scanned,sketches};
+
+mkdir -p $D/$W/music/\
+{rendered,artwork,final};
+
+mkdir -p $D/$W/dev/\
+{www,java,python,js,bash,sql,tmp,snippets}
+
+#
+# Resources structure
+#
+mkdir -p $D/$R/\
+{ebooks,tutorials,samples,textures,patterns,brushes,inspirations,photos,\
+snippets,tools,screencasts};
+
