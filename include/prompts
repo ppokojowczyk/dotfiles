@@ -4,6 +4,7 @@
 
 function prompt_block {
 local RESET=''
+local REMOTE=''
 local FG=7
 local BG=4
 #local COLORIZE='\e]4;'$BG';rgb:7F/B3/54\e\\\e[32m'
@@ -15,7 +16,10 @@ then
     [[ -z $(git status --porcelain) ]] && GIT+="\[\033[32;4"$BG"m\]" || GIT+="\[\033[31;4"$BG"m\]"
     GIT+="$git_branch\[\033[3"$FG";4"$BG"m\]]"
 fi
-PS1="$COLORIZE\n\[\033[0;3"$BG"m\]\342\224\214\[\033[3"$FG";4"$BG"m\] \u@\h ( \w )$GIT \[\033[0m\]\n\[\033[0;3"$BG"m\]\342\224\224\342\206\222 \[\033[0m\]"
+if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
+  REMOTE="(REMOTE)"
+fi
+PS1="$COLORIZE\n\[\033[0;3"$BG"m\]\342\224\214\[\033[3"$FG";4"$BG"m\] \u@\h ( \w )$GIT \[\033[0m\]\n\[\033[0;3"$BG"m\]\342\224\224$REMOTE\342\206\222 \[\033[0m\]"
 }
 
 function prompt_simple {
