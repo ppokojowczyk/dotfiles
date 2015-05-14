@@ -46,8 +46,8 @@ URxvt.keysym.M-v: perl:clipboard:paste
 
 !URxvt*font:  xft:Droid Sans Mono:size=12:antialias=true
 
-URxvt*font: xft:Terminus:style=Regular:size=14
-URxvt*boldFont: xft:Terminus:style=Bold:size=14
+URxvt*font: xft:Terminus:style=Regular:size=10
+URxvt*boldFont: xft:Terminus:style=Bold:size=10
 
 !URxvt*font: xft:Bitstream\ Vera\ Sans\ Mono:style=roman:pixelsize=9
 

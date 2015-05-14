@@ -55,5 +55,5 @@ shopt -s hostcomplete
 shopt -s nocaseglob
 
 # Bash prompt.
-PROMPT_COMMAND=prompt_block
+# PROMPT_COMMAND=prompt_block
 

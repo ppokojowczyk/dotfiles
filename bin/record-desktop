@@ -1,2 +1,2 @@
-NOW=`date +%F_%T`
+NOW=`date +%F_%H-%M-%S`
 ffmpeg -an -f x11grab -r 25 -s 1920x1080 -i :0.0 -vcodec libx264 -threads 0 output_$NOW.mkv -vpre ultrafast 
